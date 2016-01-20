@@ -100,6 +100,28 @@ namespace SevenEngine.Input
       }
     }
 
+    /// <summary>(ONLY CALL THIS ONCE PER INOUT HANDLING!!!) Gets the last absolute X position and updates the mouse position</summary>
+    public int X
+    {
+        get
+        {
+            int temp = _previousX;
+            _previousX = _mouse.X;
+            return _previousX;
+        }
+    }
+
+    /// <summary>(ONLY CALL THIS ONCE PER INOUT HANDLING!!!) Gets the last absolute Y position and updates the mouse position</summary>
+    public int Y
+    {
+        get
+        {
+            int temp = _previousY;
+            _previousY = _mouse.Y;
+            return _previousY;
+        }
+    }
+
     #region Pressed Properties
 
     public bool LeftClickPressed { get { return !_previousState[(int)MouseButton.Left] && _currentState[(int)MouseButton.Left]; } }
